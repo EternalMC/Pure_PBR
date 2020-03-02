@@ -2,6 +2,7 @@
 #define composite2
 #define fsh
 #define ShaderStage 2
+#include "/settings.glsl"
 #include "/lib/Syntax.glsl"
 
 //Adjustable variables. Tune these for performance
