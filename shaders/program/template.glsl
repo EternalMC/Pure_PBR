@@ -3,7 +3,7 @@
 #define program name ie composite
 #define fsh / vsh
 #define ShaderStage ie -1 0 1 2 
-#include "/settings.glsl"
+#include "/lib/Settings.glsl"
 #include "/lib/Syntax.glsl"
 #include "/lib/Settings.glsl"
 
