@@ -26,7 +26,8 @@ const bool colortex2Clear = false;
 //todo
 
 //Composite4
-//todo
+#define ISO  400 //[100 200 300 400 500 600 700 800 900 1000]
+
 
 //Shadow
 const int shadowMapResolution = 2048;  // [1024 2048 3072 4096 8192]
