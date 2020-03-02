@@ -1,1 +1,5 @@
-//#include "/lib/final/Tonemap.glsl"
+#ifndef INTERNAL_INCLUDED_FINAL_TONEMAP
+  #define INTERNAL_INCLUDED_FINAL_TONEMAP
+
+
+#endif /* INTERNAL_INCLUDED_FINAL_TONEMAP */
