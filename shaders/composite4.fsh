@@ -3,6 +3,7 @@
 #define fsh
 #define ShaderStage 4
 #include "/lib/Syntax.glsl"
+#include "/lib/Settings.glsl"
 
 /*
 Whoop whoop, compile camera aperature iso and exposure.
