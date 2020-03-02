@@ -27,6 +27,7 @@ const bool colortex2Clear = false;
 
 //Composite4
 #define ISO  400 //[100 200 300 400 500 600 700 800 900 1000]
+#define SHUTTER_SPEED 0.01666666666
 
 
 //Shadow
