@@ -1,3 +1,5 @@
+//todo e
+
 vec3 CalculateBokeh(vec2 screenCoord, vec2 offset) {
             const float lod  = 2.0;
             const float lod2 = exp2(lod);
