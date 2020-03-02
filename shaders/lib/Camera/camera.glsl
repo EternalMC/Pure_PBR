@@ -1,4 +1,7 @@
 //todo e
+stuct camera {
+
+}
 
 vec3 CalculateBokeh(vec2 screenCoord, vec2 offset) {
             const float lod  = 2.0;
