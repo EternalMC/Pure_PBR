@@ -2,6 +2,7 @@
 #define composite0
 #define fsh
 #define ShaderStage 0
+#include "/settings.glsl"
 #include "/lib/Syntax.glsl"
 #include "/lib/Utility.glsl"
 
