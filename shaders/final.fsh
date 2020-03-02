@@ -18,6 +18,8 @@ out vec4 finalColor;
 
 #include "/lib/Debug.glsl"
 
+#include "/lib/final/tonemap.glsl"
+
 void main() {
     finalColor = texture(colortex0, texcoord);
     finalColor = vec4(L2sRGB(finalColor.rgb), finalColor.a);
