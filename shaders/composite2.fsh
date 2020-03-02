@@ -5,14 +5,6 @@
 #include "/lib/Syntax.glsl"
 #include "/lib/Settings.glsl"
 
-//Adjustable variables. Tune these for performance
-#define MAX_RAY_STEPS           30
-#define RAY_STEP_LENGTH         0.1
-#define RAY_DEPTH_BIAS          0.05
-#define RAY_GROWTH              1.05
-#define NUM_RAYS                1  // [1 2 4 8 16 32]
-#define NUM_BOUNCES             2
-
 /*
     sky - frostbite from spheremap
     clouds - frostbite
