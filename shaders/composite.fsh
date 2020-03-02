@@ -2,9 +2,9 @@
 #define composite0
 #define fsh
 #define ShaderStage 0
-#include "/lib/Settings.glsl"
 #include "/lib/Syntax.glsl"
 #include "/lib/Utility.glsl"
+#include "/lib/Settings.glsl"
 
 /*
 // TODO: GI(RSM-flux) https://pdfs.semanticscholar.org/1b29/71e7024a3e1c4108718e59b5ba4327c44b93.pdf, 
