@@ -6,6 +6,7 @@
 
 /*
 Whoop whoop, compile camera aperature iso and exposure.
+https://placeholderart.wordpress.com/2014/11/21/implementing-a-physically-based-camera-manual-exposure/  hope the website doesnt get removed 
 finalize image with dof
 */
 
