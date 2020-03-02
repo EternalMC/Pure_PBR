@@ -35,6 +35,8 @@ vec3 ProjectEquirectangularImage(vec2 coord) {
 	return normalize(vec3(cos_lat * sin_long, sin_lat, cos_lat * cos_long));
 }
 
+#include "/program/composite.glsl"
+
 void main() {
     albedo = texture(colortex0, texcoord);
 
