@@ -3,6 +3,7 @@
 #define fsh
 #define ShaderStage 3
 #include "/lib/Syntax.glsl"
+#include "/lib/Settings.glsl"
 
 /*
 filtering pass - Reflections, CLOUDS
