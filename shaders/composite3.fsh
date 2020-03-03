@@ -13,6 +13,7 @@ http://ivizlab.sfu.ca/papers/cgf2012.pdf
 */
 
 uniform sampler2D colortex0;
+uniform sampler2D depthtex0;
 
 in vec2 texcoord;
 
