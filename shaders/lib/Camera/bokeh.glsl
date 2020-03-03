@@ -131,7 +131,7 @@ float bdepth(vec2 coords) //blurring depth
 	
 	for( int i=0; i<9; i++ )
 	{
-		float tmp = texture2D(depthtex0, coords + offset[i]).r;
+		float tmp = texture2D(depthTex, coords + offset[i]).r;
 		d += tmp * kernel[i];
 	}
 	
@@ -187,7 +187,7 @@ void main()
 {
 	//scene depth calculation
 	
-	float depth = linearize(texture2D(depthtex0,texcoord.xy).x);
+	float depth = linearize(texture2D(depthTex,texcoord.xy).x);
 	
 	if (depthblur)
 	{
@@ -287,13 +287,14 @@ void main()
 
 /*
 uniform sampler2D renderTex;
+uniform sampler2D depthTex;
 out vec4 color;
 smooth in vec2 texcoord;
 void main()
 {
 	vec4 c	=	texture(renderTex, texcoord);
 	// grabbing values out of the depth buffer causes program to fail.
-	float z	=	texture(depthtex0, texcoord).x;
+	float z	=	texture(depthTex, texcoord).x;
 	color	=	texture(renderTex, texcoord) + (z * 0.000001);
 }
 */
