@@ -10,6 +10,7 @@ filtering pass - Reflections, CLOUDS
 generation of bloom and aperature shape
 https://learnopengl.com/Advanced-Lighting/Bloom
 http://ivizlab.sfu.ca/papers/cgf2012.pdf
+https://github.com/orthecreedence/ghostie/blob/master/opengl/glsl/dof.bokeh.2.4.frag
 */
 
 uniform sampler2D colortex0;
