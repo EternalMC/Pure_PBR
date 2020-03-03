@@ -41,11 +41,6 @@ float fdofdist = 3.0; //far dof blur falloff distance
 
 float CoC = 0.03;//circle of confusion size in mm (35mm film = 0.03mm)
 
-bool vignetting = false; //use optical lens vignetting?
-float vignout = 1.3; //vignetting outer border
-float vignin = 0.0; //vignetting inner border
-float vignfade = 22.0; //f-stops till vignete fades
-
 bool autofocus = false; //use autofocus in shader? disable if you use external focalDepth value
 vec2 focus = vec2(0.5,0.5); // autofocus point on screen (0.0,0.0 - left lower corner, 1.0,1.0 - upper right)
 float maxblur = 1.0; //clamp value of max blur (0.0 = no blur,1.0 default)
@@ -188,13 +183,6 @@ float linearize(float depth)
 	return -zfar * znear / (depth * (zfar - znear) - zfar);
 }
 
-float vignette()
-{
-	float dist = distance(gl_TexCoord[3].xy, vec2(0.5,0.5));
-	dist = smoothstep(vignout+(fstop/vignfade), vignin+(fstop/vignfade), dist);
-	return clamp(dist,0.0,1.0);
-}
-
 void main() 
 {
 	//scene depth calculation
@@ -290,11 +278,6 @@ void main()
 	if (showFocus)
 	{
 		col = debugFocus(col, blur, depth);
-	}
-	
-	if (vignetting)
-	{
-		col *= vignette();
 	}
 	
 	//gl_FragColor.rgb = texture(renderTex, texcoord);
