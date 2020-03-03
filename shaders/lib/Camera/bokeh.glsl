@@ -141,16 +141,16 @@ float bdepth(vec2 coords) //blurring depth
 
 vec3 color(vec2 coords,float blur) //processing the sample
 {
-	vec3 col = vec3(0.0);
+	vec3 color = vec3(0.0);
 	
-	col.r = texture2D(renderTex,coords + vec2(0.0,1.0)*texel*fringe*blur).r;
-	col.g = texture2D(renderTex,coords + vec2(-0.866,-0.5)*texel*fringe*blur).g;
-	col.b = texture2D(renderTex,coords + vec2(0.866,-0.5)*texel*fringe*blur).b;
+	color.r = texture2D(renderTex,coords + vec2(0.0,1.0)*texel*fringe*blur).r;
+	color.g = texture2D(renderTex,coords + vec2(-0.866,-0.5)*texel*fringe*blur).g;
+	color.b = texture2D(renderTex,coords + vec2(0.866,-0.5)*texel*fringe*blur).b;
 	
 	vec3 lumcoeff = vec3(0.299,0.587,0.114);
-	float lum = dot(col.rgb, lumcoeff);
+	float lum = dot(color.rgb, lumcoeff);
 	float thresh = max((lum-threshold)*gain, 0.0);
-	return col+mix(vec3(0.0),col,thresh*blur);
+	return color+mix(vec3(0.0),color,thresh*blur);
 }
 
 vec2 rand(vec2 coord) //generating noise/pattern texture for dithering
@@ -166,16 +166,16 @@ vec2 rand(vec2 coord) //generating noise/pattern texture for dithering
 	return vec2(noiseX,noiseY);
 }
 
-vec3 debugFocus(vec3 col, float blur, float depth)
+vec3 debugFocus(vec3 color, float blur, float depth)
 {
 	float edge = 0.002*depth; //distance based edge smoothing
 	float m = clamp(smoothstep(0.0,edge,blur),0.0,1.0);
 	float e = clamp(smoothstep(1.0-edge,1.0,blur),0.0,1.0);
 	
-	col = mix(col,vec3(1.0,0.5,0.0),(1.0-m)*0.6);
-	col = mix(col,vec3(0.0,0.5,1.0),((1.0-e)-(1.0-m))*0.2);
+	color = mix(color,vec3(1.0,0.5,0.0),(1.0-m)*0.6);
+	color = mix(color,vec3(0.0,0.5,1.0),((1.0-e)-(1.0-m))*0.2);
 
-	return col;
+	return color;
 }
 
 float linearize(float depth)
@@ -241,16 +241,16 @@ void main()
 	
 	// calculation of final color
 	
-	vec3 col = vec3(0.0);
+	vec3 color = vec3(0.0);
 	
 	if(blur < 0.05) //some optimization thingy
 	{
-		col = texture2D(renderTex, texcoord.xy).rgb;
+		color = texture2D(renderTex, texcoord.xy).rgb;
 	}
 	
 	else
 	{
-		col = texture2D(renderTex, texcoord.xy).rgb;
+		color = texture2D(renderTex, texcoord.xy).rgb;
 		float s = 1.0;
 		int ringsamples;
 		
@@ -268,20 +268,20 @@ void main()
 				{ 
 					p = penta(vec2(pw,ph));
 				}
-				col += color(texcoord.xy + vec2(pw*w,ph*h),blur)*mix(1.0,(float(i))/(float(rings)),bias)*p;  
+				color += color(texcoord.xy + vec2(pw*w,ph*h),blur)*mix(1.0,(float(i))/(float(rings)),bias)*p;  
 				s += 1.0*mix(1.0,(float(i))/(float(rings)),bias)*p;   
 			}
 		}
-		col /= s; //divide by sample count
+		color /= s; //divide by sample count
 	}
 	
 	if (showFocus)
 	{
-		col = debugFocus(col, blur, depth);
+		color = debugFocus(color, blur, depth);
 	}
 	
 	//gl_FragColor.rgb = texture(renderTex, texcoord);
-	gl_FragColor.rgb = col;
+	gl_FragColor.rgb = color;
 	gl_FragColor.a = 1.0;
 }
 
