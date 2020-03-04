@@ -1,7 +1,5 @@
-//todo e
-stuct camera {
-
-}/*
+//todo
+/*
 * Get an exposure using the Saturation-based Speed method.
 */
 float getSaturationBasedExposure(float aperture,
