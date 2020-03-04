@@ -284,17 +284,3 @@ void main()
 	gl_FragColor.rgb = color;
 	gl_FragColor.a = 1.0;
 }
-
-/*
-uniform sampler2D renderTex;
-uniform sampler2D depthtex0;
-out vec4 color;
-smooth in vec2 texcoord;
-void main()
-{
-	vec4 c	=	texture(renderTex, texcoord);
-	// grabbing values out of the depth buffer causes program to fail.
-	float z	=	texture(depthtex0, texcoord).x;
-	color	=	texture(renderTex, texcoord) + (z * 0.000001);
-}
-*/
