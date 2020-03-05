@@ -22,7 +22,7 @@ layout (location = 0) out vec4 albedo;
 
 #include "/lib/Debug.glsl"
 
-#include "/lib/Camera/bokeh.glsl"
+//Code
 
 void main() {
     albedo = texture(colortex0, texcoord);
